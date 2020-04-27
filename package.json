@@ -1,0 +1,26 @@
+{
+  "name": "backend-taxi-service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ari7946/backend-taxi-service.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ari7946/backend-taxi-service/issues"
+  },
+  "homepage": "https://github.com/ari7946/backend-taxi-service#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "helmet": "^3.22.0",
+    "knex": "^0.21.0",
+    "sqlite3": "^4.1.1"
+  }
+}

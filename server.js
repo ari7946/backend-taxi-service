@@ -1,10 +1,22 @@
 const express = require('express');
+const cors = require('cors');
+const helmet = require('helmet');
 
-const TripsRouter = require('./trips/trips-router.js');
+const authenticate = require('./api/auth/authMiddleware');
+const authRouter = require('./api/auth/authRouter');
+//const tripsRouter = require('./api/trips/tripsRouter');
 
 const server = express();
 
+server.use(helmet());
+server.use(cors());
 server.use(express.json());
-//server.use('/api', TripsRouter);
+
+server.use('/api/', authRouter);
+//server.use('/api/trips', authenticate, tripsRouter);
+
+server.get('/', (req, res) => {
+  res.send("<p>Hello World!</p>");
+});
 
 module.exports = server;

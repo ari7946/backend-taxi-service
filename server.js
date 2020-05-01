@@ -13,7 +13,7 @@ server.use(cors());
 server.use(express.json());
 
 server.use('/api', authRouter);
-server.use('/api/trips', authenticate, tripsRouter);
+server.use('/api/trips', tripsRouter);
 
 server.get('/', (req, res) => {
   res.send("<p>Hello World!</p>");

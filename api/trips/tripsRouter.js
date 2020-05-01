@@ -1,7 +1,8 @@
 const Trips = require('./tripsModel');
+const authenticate = require('../auth/authenticate');
 const router = require('express').Router();
 
-router.get('/', async (req, res) => {
+router.get('/', authenticate, async (req, res) => {
   try {
     const trips = await Trips.find();
     if (trips) {
@@ -12,7 +13,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/:id', async (req, res) => {
+router.get('/:id', authenticate, async (req, res) => {
   const { id } = req.params;
 
   try {
@@ -42,7 +43,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-router.put('/:id', async (req, res) => {
+router.put('/:id', authenticate, async (req, res) => {
   const { id } = req.params;
   const changes = req.body;
 
@@ -61,7 +62,7 @@ router.put('/:id', async (req, res) => {
   }
 });
 
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', authenticate, async (req, res) => {
   const { id } = req.params;
   try {
     const removedTrip = await Trips.remove(id);

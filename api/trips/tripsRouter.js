@@ -48,7 +48,9 @@ router.put('/:id', async (req, res) => {
     const trip = await Trips.findById(id);
     if (trip) {
       const updatedTrip = await Trips.update(changes, id);
-      res.json(updatedTrip)
+      if (updatedTrip) {
+        res.json(updatedTrip)
+      }
     } else {
       res.status(404).json({ message: 'Unable to find trip with given id' });
     }

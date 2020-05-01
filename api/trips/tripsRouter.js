@@ -32,7 +32,7 @@ router.post('/', async (req, res) => {
     const trip = await Trips.add(tripData);
     res.status(201).json(trip);
   } catch (error) {
-    res.status(505).json({ message: 'Internal error' })
+    res.status(500).json({ message: 'Internal error' })
   }
 });
 

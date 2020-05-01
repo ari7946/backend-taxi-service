@@ -24,19 +24,19 @@
 exports.up = function (knex) {
   return knex.schema.createTable('trips', tbl => {
     tbl.increments();
-    tbl.real('distance');
-    tbl.string('startAddress', 500);
-    tbl.string('endAddress', 500);
+    tbl.real('distance').notNullable();;
+    tbl.string('startAddress', 500).notNullable();
+    tbl.string('endAddress', 500).notNullable();
     tbl.real('price', 500);
-    tbl.string('name', 500);
+    tbl.string('name', 500).notNullable();
     tbl.string('comments', 500);
-    tbl.string('phone', 500);
+    tbl.string('phone', 500).notNullable();
     tbl.integer('passengers');
-    tbl.string('email', 500);
+    tbl.string('email', 500).notNullable();
     tbl.string('direction', 500);
-    tbl.string('date', 500);
-    tbl.string('time', 500);
-    tbl.string('vehicle', 500);
+    tbl.date('date', 500).notNullable();
+    tbl.time('time', 500).notNullable();
+    tbl.string('vehicle', 500).notNullable();
     tbl.string('status', 20)
     tbl.timestamp('created_at').defaultTo(knex.fn.now());
   })

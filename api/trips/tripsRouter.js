@@ -4,7 +4,9 @@ const router = require('express').Router();
 router.get('/', async (req, res) => {
   try {
     const trips = await Trips.find();
-    res.json(trips)
+    if (trips) {
+      res.json(trips)
+    }
   } catch (error) {
     res.status(500).json({error, message: "Internal error"})
   }
@@ -27,7 +29,7 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', async (req, res) => {
   const tripData = req.body;
-  console.log(tripData);
+  
   try {
     const trip = await Trips.add(tripData);
     if (trip) {

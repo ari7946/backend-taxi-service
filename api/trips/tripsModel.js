@@ -36,5 +36,5 @@ function update(changes, id) {
 async function remove(id) {
   const trip = await findById(id);
   const count = await db('trips').where({ id }).del();
-  return count ? trip : null
+  return count ? trip : null;
 }

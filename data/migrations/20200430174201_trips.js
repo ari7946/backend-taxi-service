@@ -1,5 +1,5 @@
-
-//******** Client react app state
+//******** Client react app state ************
+//******************************************** 
 // distance: "",
 // points: [null, null],
 // startAddress: '',
@@ -37,11 +37,12 @@ exports.up = function (knex) {
     tbl.string('date', 500);
     tbl.string('time', 500);
     tbl.string('vehicle', 500);
-    tbl.timestamp('created_at').defaultTo(knex.fn.now()); 
+    tbl.string('status', 20)
+    tbl.timestamp('created_at').defaultTo(knex.fn.now());
   })
 };
 
 exports.down = function (knex) {
   // undoing that change
   return knex.schema.dropTableIfExists('trips');
-};
+}

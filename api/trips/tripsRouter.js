@@ -30,7 +30,11 @@ router.post('/', async (req, res) => {
   console.log(tripData);
   try {
     const trip = await Trips.add(tripData);
-    res.status(201).json(trip);
+    if (trip) {
+      res.status(201).json(trip);
+    } else {
+      res.status(404).json({ message: 'Unable to post trip with given id' });
+    }
   } catch (error) {
     res.status(500).json({ message: 'Internal error' })
   }

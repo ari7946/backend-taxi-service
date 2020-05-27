@@ -37,7 +37,7 @@ exports.up = function (knex) {
     tbl.date('date', 500).notNullable();
     tbl.time('time', 500).notNullable();
     tbl.string('vehicle', 500).notNullable();
-    tbl.string('status', 20)
+    tbl.string('status', 20);
     tbl.timestamp('created_at').defaultTo(knex.fn.now());
   })
 };

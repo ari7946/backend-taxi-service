@@ -21,7 +21,7 @@
 // error: false,
 // errorMessage: '',
 // invalidFields: [],
-exports.seed = function(knex) {
+exports.seed = function (knex) {
   // Deletes ALL existing entries
   return knex('trips').del()
     .then(function () {
@@ -32,7 +32,7 @@ exports.seed = function(knex) {
           "startAddress": "Irvine Bowl, Broadway, Laguna Beach, CA 92651",
           "endAddress": "Long Beach Airport, 4100 East Donald Douglas Drive, Long Beach, CA 90808",
           "price": 108.83,
-          "name": "James Doe",
+          "name": "Ray Allen",
           "comments": null,
           "phone": "914-323-2432",
           "passengers": 1,
@@ -41,7 +41,7 @@ exports.seed = function(knex) {
           "date": "2020-07-22",
           "time": "14:30",
           "vehicle": "sedan",
-          "status": "confirmed",
+          "status": "confirm",
         },
         {
           "distance": 14.2,
@@ -73,7 +73,7 @@ exports.seed = function(knex) {
           "date": "2020-06-07",
           "time": "09:00",
           "vehicle": "van",
-          "status": "confirmed",
+          "status": "confirm",
         },
         {
           "distance": 30.6,
@@ -90,7 +90,7 @@ exports.seed = function(knex) {
           "time": "15:00",
           "vehicle": "sedan",
           "status": "complete",
-        }, 
+        },
         {
           "distance": 22,
           "startAddress": "Dana Point Tt, 10545 Humbolt St, Los Alamitos, CA 90720",
@@ -134,10 +134,10 @@ exports.seed = function(knex) {
           "passengers": 1,
           "email": "eliwashere@gmail.com",
           "direction": "oneWay",
-          "date": "2020-07-14",
+          "date": "2020-04-14",
           "time": "10:00",
           "vehicle": "sedan",
-          "status": "pending",
+          "status": "complete",
         },
         {
           "distance": 0.5,
@@ -153,7 +153,7 @@ exports.seed = function(knex) {
           "date": "2020-07-08",
           "time": "01:00",
           "vehicle": "van",
-          "status": "pending",
+          "status": "confirm",
         },
       ]);
     });

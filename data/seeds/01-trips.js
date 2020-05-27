@@ -121,7 +121,7 @@ exports.seed = function (knex) {
           "date": "2020-07-14",
           "time": "07:00",
           "vehicle": "sedan",
-          "status": "confirmed",
+          "status": "confirm",
         },
         {
           "distance": 5.5,

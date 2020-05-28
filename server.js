@@ -11,7 +11,7 @@ server.use(helmet());
 server.use(cors());
 server.use(express.json());
 
-server.use('/api/auth', authRouter);
+server.use('/api', authRouter);
 server.use('/api/trips', tripsRouter);
 
 server.get('/', (req, res) => {

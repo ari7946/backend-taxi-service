@@ -15,7 +15,6 @@ router.get('/', authenticate, async (req, res) => {
 
 router.get('/:id', authenticate, async (req, res) => {
   const { id } = req.params;
-
   try {
     const trip = await Trips.findById(id);
     if (trip) {
@@ -30,7 +29,6 @@ router.get('/:id', authenticate, async (req, res) => {
 
 router.post('/', async (req, res) => {
   const tripData = req.body;
-  
   try {
     const trip = await Trips.add(tripData);
     if (trip) {
@@ -46,7 +44,6 @@ router.post('/', async (req, res) => {
 router.put('/:id', authenticate, async (req, res) => {
   const { id } = req.params;
   const changes = req.body;
-
   try {
     const trip = await Trips.findById(id);
     if (trip) {

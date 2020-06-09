@@ -10,6 +10,13 @@ router.post('/register', (req, res) => {
   const hash = bcrypt.hashSync(user.password, 12);
   user.password = hash;
 
+  if (user.username === 'admin') {
+    res.status(401).json({
+      message: "Unable to register as Admin",
+    })
+    return;
+  }
+
   users.add(user)
     .then(savedUser => {
       const token = generateToken(savedUser);
@@ -29,6 +36,13 @@ router.post('/register', (req, res) => {
 
 router.post('/login', (req, res) => {
   let { username, password } = req.body;
+
+  if (username === 'admin') {
+    res.status(401).json({
+      message: "Unable to login as Admin",
+    })
+    return;
+  }
 
   users.findBy({ username })
     .then(user => {

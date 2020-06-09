@@ -16,18 +16,20 @@ function find() {
 
 function findBy(filter) {
   return db('users')
-    .where(filter);
+    .where(filter)
+    .first();
 }
 
 async function add(user) {
   const [id] = await db('users').insert(user);
-  return findById(id);
+  return findBy({ id });
 }
 
 function findById(id) {
   return db('users')
     .select('id', 'username')
     .where({ id })
+    .first()
 }
 
 function update(changes, id) {

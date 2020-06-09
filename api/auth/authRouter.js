@@ -11,9 +11,16 @@ router.post('/register', (req, res) => {
   user.password = hash;
 
   users.add(user)
-    .then(saved => {
-      const token = generateToken(saved);
-      res.status(201).json({ user: saved, token });
+    .then(savedUser => {
+      const token = generateToken(savedUser);
+      const { username, name, phone, email } = savedUser
+      res.status(201).json({ 
+        username,
+        name,
+        phone,
+        email, 
+        token
+      });
     })
     .catch(error => {
       res.status(500).json(error);
@@ -24,14 +31,17 @@ router.post('/login', (req, res) => {
   let { username, password } = req.body;
 
   users.findBy({ username })
-    .first()
     .then(user => {
       if (user && bcrypt.compareSync(password, user.password)) {
         const token = generateToken(user);
+        const { username, name, phone, email } = user
         res.status(200).json({
-          message: `Welcome ${user.username}!`,
-          token
-        });
+          username,
+          name,
+          phone,
+          email,
+          token,
+        })
       } else {
         res.status(401).json({ message: 'Invalid username or password' });
       }

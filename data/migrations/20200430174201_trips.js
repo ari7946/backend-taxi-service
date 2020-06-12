@@ -24,7 +24,7 @@
 exports.up = function (knex) {
   return knex.schema.createTable('trips', tbl => {
     tbl.increments();
-    tbl.real('distance').notNullable();;
+    tbl.real('distance').notNullable();
     tbl.string('startAddress', 500).notNullable();
     tbl.string('endAddress', 500).notNullable();
     tbl.real('price', 500);
@@ -38,6 +38,7 @@ exports.up = function (knex) {
     tbl.time('time', 500).notNullable();
     tbl.string('vehicle', 500).notNullable();
     tbl.string('status', 20);
+    tbl.string('username', 255);
     tbl.timestamp('created_at').defaultTo(knex.fn.now());
   })
 };

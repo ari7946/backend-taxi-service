@@ -36,12 +36,13 @@ exports.seed = function (knex) {
           "comments": null,
           "phone": "914-323-2432",
           "passengers": 1,
-          "email": "jamesdoe@gmail.com",
+          "email": "rayallen@gmail.com",
           "direction": "oneWay",
           "date": "2020-07-22",
           "time": "14:30",
           "vehicle": "sedan",
           "status": "confirm",
+          "username": 'rayallen',
         },
         {
           "distance": 14.2,
@@ -58,6 +59,7 @@ exports.seed = function (knex) {
           "time": "17:30",
           "vehicle": "sedan",
           "status": "complete",
+          "username": 'antonwilson',
         },
         {
           "distance": 29.4,
@@ -74,6 +76,7 @@ exports.seed = function (knex) {
           "time": "09:00",
           "vehicle": "van",
           "status": "confirm",
+          "username": '',
         },
         {
           "distance": 30.6,
@@ -90,6 +93,7 @@ exports.seed = function (knex) {
           "time": "15:00",
           "vehicle": "sedan",
           "status": "complete",
+          "username": "",
         },
         {
           "distance": 22,
@@ -106,6 +110,7 @@ exports.seed = function (knex) {
           "time": "16:00",
           "vehicle": "sedan",
           "status": "archive",
+          "username": "",
         },
         {
           "distance": 6,
@@ -122,6 +127,7 @@ exports.seed = function (knex) {
           "time": "07:00",
           "vehicle": "sedan",
           "status": "confirm",
+          "username": 'ahmadrashad',
         },
         {
           "distance": 5.5,
@@ -138,6 +144,7 @@ exports.seed = function (knex) {
           "time": "10:00",
           "vehicle": "sedan",
           "status": "complete",
+          "username": 'elimeed',
         },
         {
           "distance": 0.5,
@@ -154,6 +161,7 @@ exports.seed = function (knex) {
           "time": "01:00",
           "vehicle": "van",
           "status": "confirm",
+          "username": 'anna',
         },
       ]);
     });

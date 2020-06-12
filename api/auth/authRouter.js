@@ -8,7 +8,6 @@ const users = require('../users/usersModel');
 router.post('/register', (req, res) => {  
   let user = req.body;
   const hash = bcrypt.hashSync(user.password, 12);
-  console.log('hash', bcrypt.hashSync(user.password, 12));
   user.password = hash;
 
   if (user.username === 'admin') {

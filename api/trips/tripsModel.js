@@ -14,7 +14,7 @@ function find() {
 }
 
 function findBy(filter) {
-  return db('users')
+  return db('trips')
     .where(filter)
 }
 

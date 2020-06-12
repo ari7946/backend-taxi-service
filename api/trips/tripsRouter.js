@@ -3,6 +3,8 @@ const authenticate = require('../auth/authenticate');
 const router = require('express').Router();
 
 router.get('/', authenticate, async (req, res) => {
+  const { sub, department } = req.decodedToken;
+  console.log('department', department);
   try {
     const trips = await Trips.find();
     if (trips) {

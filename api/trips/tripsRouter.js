@@ -3,15 +3,26 @@ const authenticate = require('../auth/authenticate');
 const router = require('express').Router();
 
 router.get('/', authenticate, async (req, res) => {
-  const { sub, department } = req.decodedToken;
-  console.log('department', department);
-  try {
-    const trips = await Trips.find();
-    if (trips) {
-      res.json(trips)
+  const { role, username } = req.decodedToken;
+
+  if ( username === 'admin' && role === 'admin') {
+    try {
+      const trips = await Trips.find();
+      if (trips) {
+        res.json(trips)
+      }
+    } catch (error) {
+      res.status(500).json({error, message: "Internal error"})
     }
-  } catch (error) {
-    res.status(500).json({error, message: "Internal error"})
+  } else {
+    try {
+      const trips = await Trips.findBy({ username });
+      if (trips) {
+        res.json(trips)
+      }
+    } catch (error) {
+      res.status(500).json({ error, message: "Internal error" })
+    }
   }
 });
 

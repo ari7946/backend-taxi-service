@@ -56,11 +56,11 @@ router.post('/login', (req, res) => {
 
   users.findBy({ username })
     .then(user => {
+      // Allow development users to log in
       const authPassword = developmentUsers[username] === username
         ? true 
         : bcrypt.compareSync(password, user.password);
       if (user && authPassword) {
-        console.log('user', user);
         const token = generateToken(user);
         const { username, name, phone, email } = user
         res.status(200).json({

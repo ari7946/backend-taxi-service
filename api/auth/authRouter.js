@@ -84,7 +84,7 @@ router.post('/admin', (req, res) => {
   if (bcrypt.compareSync(password, bcrypt.hashSync(passCode, 12)) && username === 'admin') {
     const token = generateToken({ username, id: 0 });
     res.status(200).json({
-      message: `Successful login`,
+      username,
       token
     })
   } else {

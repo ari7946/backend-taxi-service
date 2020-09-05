@@ -7,8 +7,10 @@ router.get('/', authenticate, async (req, res) => {
   let trips;
 
     try {
-      trips = username === 'admin' && role === 'admin' 
+      trips = username === 'admin' && role === 'admin'
+        // if admin, return every trip 
         ? await Trips.find()
+        // otherwise
         : await Trips.findBy({ username })
       if (trips) {
         res.json(trips)

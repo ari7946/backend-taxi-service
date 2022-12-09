@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "server": "nodemon index.js",
+    "build": "nodemon index.js",
     "dev": "nodemon index.js"
   },
   "repository": {
